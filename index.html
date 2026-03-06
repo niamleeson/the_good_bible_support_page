@@ -44,6 +44,24 @@
       font-size: 15px;
       margin-bottom: 32px;
     }
+    nav {
+      margin-bottom: 32px;
+      display: flex;
+      gap: 24px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 12px;
+    }
+    nav a {
+      font-size: 15px;
+      font-weight: 500;
+      color: #888;
+    }
+    nav a.active {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+      margin-bottom: -13px;
+    }
     .contact-box {
       background: #fff;
       border: 1px solid #e0e0e0;
@@ -68,6 +86,22 @@
     .faq-item p {
       font-size: 15px;
     }
+    .feature-section {
+      margin-bottom: 28px;
+    }
+    .feature-section h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .feature-section ul {
+      padding-left: 20px;
+      color: #555;
+      font-size: 15px;
+    }
+    .feature-section li {
+      margin-bottom: 6px;
+    }
     footer {
       margin-top: 48px;
       padding-top: 24px;
@@ -75,6 +109,8 @@
       font-size: 13px;
       color: #999;
     }
+    .page { display: none; }
+    .page.active { display: block; }
   </style>
 </head>
 <body>
@@ -82,55 +118,190 @@
     <h1>The Good Bible</h1>
     <p class="subtitle">Support & Help</p>
 
-    <h2>Contact Us</h2>
-    <div class="contact-box">
-      <p>For questions, feedback, or bug reports:</p>
-      <p><a href="mailto:thegoodbiblehelp@gmail.com">thegoodbiblehelp@gmail.com</a></p>
+    <nav>
+      <a href="#support" class="active" onclick="showPage('support', this)">Support</a>
+      <a href="#how-to" onclick="showPage('howto', this)">How to Use</a>
+      <a href="#privacy" onclick="showPage('privacy', this)">Privacy</a>
+    </nav>
+
+    <!-- ── Support Page ──────────────────────────────────── -->
+    <div id="support" class="page active">
+      <h2>Contact Us</h2>
+      <div class="contact-box">
+        <p>For questions, feedback, or bug reports:</p>
+        <p><a href="mailto:thegoodbiblehelp@gmail.com">thegoodbiblehelp@gmail.com</a></p>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>Which Bible translations are available?</h3>
+        <p>The Good Bible currently includes KJV and WEB in English. More translations and language support are coming soon.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is this app free?</h3>
+        <p>Yes. The Good Bible is completely free with no ads and no in-app purchases.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data stored locally?</h3>
+        <p>Yes. All your notes, highlights, drawings, and reading progress are stored locally on your device. Nothing is sent to any server.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>I found a bug. How do I report it?</h3>
+        <p>Email us at <a href="mailto:thegoodbiblehelp@gmail.com">thegoodbiblehelp@gmail.com</a> with a description of what happened and we'll look into it.</p>
+      </div>
     </div>
 
-    <h2>Frequently Asked Questions</h2>
+    <!-- ── How to Use Page ───────────────────────────────── -->
+    <div id="howto" class="page">
+      <h2>How to Use The Good Bible</h2>
 
-    <div class="faq-item">
-      <h3>Which Bible translations are available?</h3>
-      <p>The Good Bible currently includes KJV and WEB in English. More translations and language support are coming soon.</p>
+      <div class="feature-section">
+        <h3>Reading</h3>
+        <ul>
+          <li>Scroll continuously through chapters with smooth infinite scrolling.</li>
+          <li>Switch between translations (KJV, WEB) instantly from the menu.</li>
+          <li>Jump to any verse using the Go-to-Verse dialog &mdash; type references like "John 3:16" or "Rom 12".</li>
+          <li>Navigate books from the book grid with customizable layouts.</li>
+          <li>Read in single or multi-column mode.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Toolbar &amp; Interaction Modes</h3>
+        <ul>
+          <li>Tap the floating toolbar to switch between modes: Read, Select, Highlight, Draw, and Note.</li>
+          <li>The toolbar can be positioned on the left or right side of the screen.</li>
+          <li>Each mode changes how your taps and gestures interact with the text.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Highlighting</h3>
+        <ul>
+          <li>Switch to Highlight mode, then long-press and drag over words to highlight them.</li>
+          <li>Choose from 12 color swatches.</li>
+          <li>Organize highlights into named groups with custom colors.</li>
+          <li>Use the eraser tool to remove highlights by dragging over them.</li>
+          <li>Undo and redo highlight actions from the toolbar.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Notes</h3>
+        <ul>
+          <li>Create rich text notes with bold, italic, underline, lists, blockquotes, headings, and more.</li>
+          <li>Anchor notes to specific words, verses, or verse ranges &mdash; they appear inline with the text.</li>
+          <li>Tap an inline note card to expand and read it. Tap the edit button to open the full editor.</li>
+          <li>Organize notes with folders and tags.</li>
+          <li>Search across all your notes instantly with full-text search.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Drawing &amp; Annotations</h3>
+        <ul>
+          <li>Switch to Draw mode to sketch directly on Bible pages.</li>
+          <li>Pressure-sensitive strokes that respond to your stylus or finger pressure.</li>
+          <li>Choose from multiple pen colors and adjust stroke width.</li>
+          <li>Toggle left and right drawing margins for extra space.</li>
+          <li>Use lasso select to move drawings around the page.</li>
+          <li>Undo and redo drawing strokes.</li>
+          <li>Drawings are saved per chapter and persist across sessions.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Select &amp; Copy</h3>
+        <ul>
+          <li>Switch to Select mode and tap verses to select them.</li>
+          <li>Long-press and drag to select individual words.</li>
+          <li>Copy selected text to clipboard with a customizable template.</li>
+          <li>Choose whether to include verse numbers and how they are formatted.</li>
+          <li>Option to place each verse on a new line when copying.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Reading Plans</h3>
+        <ul>
+          <li>Create custom reading plans with your own start and end dates.</li>
+          <li>Choose which books to include &mdash; the whole Bible or a specific range.</li>
+          <li>The app generates a daily reading schedule automatically.</li>
+          <li>Track your progress with a calendar view showing completed days.</li>
+          <li>See daily reading summaries with chapter and word counts.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Search</h3>
+        <ul>
+          <li>Full-text search across all verses in your current translation.</li>
+          <li>Search your notes by title or content.</li>
+          <li>Browse topics alphabetically or search by keyword.</li>
+          <li>Results appear instantly as you type.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Customization</h3>
+        <ul>
+          <li>Customize fonts, font sizes, font weights, line height, and letter spacing.</li>
+          <li>Set independent font settings per language.</li>
+          <li>Adjust page, verse, menu, and title colors independently.</li>
+          <li>Configure margins (uniform or per-side).</li>
+          <li>Customize verse number appearance: size, color, and vertical offset.</li>
+          <li>Rename books with custom display names.</li>
+          <li>Assign custom colors to books in the book grid.</li>
+          <li>Live preview pane shows changes as you adjust settings.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Navigation History</h3>
+        <ul>
+          <li>Your reading history is tracked automatically with timestamps.</li>
+          <li>Jump back to any previously visited location.</li>
+          <li>Your last reading position is saved and restored when you reopen the app.</li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Two-Finger Pan</h3>
+        <ul>
+          <li>In any mode, use two fingers to scroll the page &mdash; even while in Draw or Highlight mode.</li>
+          <li>Two-finger panning has the same smooth momentum scrolling as normal reading.</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="faq-item">
-      <h3>How do I highlight text?</h3>
-      <p>Switch to Highlight mode using the floating toolbar, then long-press and drag over the words you want to highlight. You can choose from 12 colors and organize highlights into groups.</p>
+    <!-- ── Privacy Page ──────────────────────────────────── -->
+    <div id="privacy" class="page">
+      <h2>Privacy Policy</h2>
+      <p>The Good Bible does not collect, store, or share any personal data. All app data including notes, highlights, drawings, and reading progress is stored locally on your device.</p>
+      <p>The app does not use analytics, tracking, or advertising services.</p>
+      <p>The app does not require an internet connection to function. No data is transmitted from your device at any time.</p>
+      <p>If you have questions about privacy, contact us at <a href="mailto:thegoodbiblehelp@gmail.com">thegoodbiblehelp@gmail.com</a>.</p>
     </div>
-
-    <div class="faq-item">
-      <h3>Can I take notes on specific verses?</h3>
-      <p>Yes. Select a verse or word, then create a note anchored to that location. Notes support rich text formatting including bold, italic, lists, and more. Organize them with folders and tags.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>How do I create a reading plan?</h3>
-      <p>Go to Reading Plans and tap the + button. Choose your start and end dates, select which books to include, and the app will generate a daily reading schedule for you.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Can I draw on the Bible pages?</h3>
-      <p>Yes. Switch to Draw mode using the toolbar. You can sketch with pressure-sensitive strokes, choose colors and widths, and your drawings are saved per chapter.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>How do I change the font or colors?</h3>
-      <p>Open Settings to customize fonts, font sizes, line height, letter spacing, page colors, verse colors, and more. Each language can have its own font settings.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Is my data stored locally?</h3>
-      <p>Yes. All your notes, highlights, drawings, and reading progress are stored locally on your device.</p>
-    </div>
-
-    <h2>Privacy Policy</h2>
-    <p>The Good Bible does not collect, store, or share any personal data. All app data including notes, highlights, and reading progress is stored locally on your device. The app does not use analytics, tracking, or advertising services.</p>
 
     <footer>
       &copy; 2025 The Good Bible. All rights reserved.
     </footer>
   </div>
+
+  <script>
+    function showPage(id, link) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      document.getElementById(id === 'howto' ? 'howto' : id).classList.add('active');
+      link.classList.add('active');
+    }
+    // Handle direct hash links
+    if (location.hash === '#how-to') showPage('howto', document.querySelectorAll('nav a')[1]);
+    if (location.hash === '#privacy') showPage('privacy', document.querySelectorAll('nav a')[2]);
+  </script>
 </body>
 </html>
